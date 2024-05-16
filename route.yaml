@@ -1,0 +1,19 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: nginx-from-github
+  labels:
+    app: nginx-from-github
+    app.kubernetes.io/component: nginx-from-github
+    app.kubernetes.io/part-of: nginx-from-github
+spec:
+  to:
+    kind: Service
+    name: nginx-from-github
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

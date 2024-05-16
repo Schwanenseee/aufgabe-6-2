@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-from-github
+  labels:
+    app: nginx-from-github
+    app.kubernetes.io/component: nginx-from-github
+    app.kubernetes.io/part-of: nginx-from-github
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  sessionAffinity: None
+  selector:
+    app: nginx-from-github
+    deployment: nginx-from-github
