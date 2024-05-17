@@ -1,15 +1,15 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: nginx-from-github
+  name: nginx-for-6-2
   labels:
-    app: nginx-from-github
-    app.kubernetes.io/component: nginx-from-github
-    app.kubernetes.io/part-of: nginx-from-github
+    app: nginx-for-6-2
+    app.kubernetes.io/component: nginx-for-6-2
+    app.kubernetes.io/part-of: nginx-for-6-2
 spec:
   to:
     kind: Service
-    name: nginx-from-github
+    name: nginx-for-6-2
     weight: 100
   port:
     targetPort: 8080-tcp
@@ -17,3 +17,6 @@ spec:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
   wildcardPolicy: None
+selector:
+  app: nginx-for-6-2
+  deployment: nginx-for-6-2

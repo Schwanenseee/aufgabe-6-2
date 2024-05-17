@@ -1,11 +1,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx-from-github
+  name: nginx-for-6-2
   labels:
-    app: nginx-from-github
-    app.kubernetes.io/component: nginx-from-github
-    app.kubernetes.io/part-of: nginx-from-github
+    app: nginx-for-6-2
+    app.kubernetes.io/component: nginx-for-6-2
+    app.kubernetes.io/part-of: nginx-for-6-2
 spec:
   ports:
     - name: 8080-tcp
@@ -16,5 +16,5 @@ spec:
   type: ClusterIP
   sessionAffinity: None
   selector:
-    app: nginx-from-github
-    deployment: nginx-from-github
+    app: nginx-for-6-2
+    deployment: nginx-for-6-2
